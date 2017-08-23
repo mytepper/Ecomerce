@@ -16,105 +16,39 @@
 </section>
 <br/>
 <div class="subheader text-center">
-     <h2>
-    MyKey&rsquo;s Latest Shirts
-</h2>
+     <h2>BOOKS</h2>
 </div>
 
 <!-- Latest SHirts -->
 <div class="row">
-    <div class="small-3 columns">
+   @forelse($books->chunk(4) as $chunk)
+    @foreach($chunk as $book)
+    <div class="small-4 columns">
         <div class="item-wrapper">
             <div class="img-wrapper">
                 <a class="button expanded add-to-cart">
                     Add to Cart
                 </a>
                 <a href="#">
-                    <img src="http://i.imgur.com/Mcw06Yt.png"/>
+                    <img src="{{url('images',$book->image)}}"/>
                 </a>
             </div>
             <a href="{{route('book')}}">
                 <h3>
-                    Kickin with Kraken Tee
+                   {{$book->name}}
                 </h3>
             </a>
             <h5>
-                $19.99
+                 Rp.{{$book->price}}
             </h5>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere sem enim, accumsan convallis risus semper.
+                 {{$book->description}}
             </p>
-        </div>
-    </div>
-    <div class="small-3 columns">
-        <div class="item-wrapper">
-            <div class="img-wrapper">
-                <a class="button expanded add-to-cart">
-                    Add to Cart
-                </a>
-                <a href="#">
-                    <img src="http://i.imgur.com/Mcw06Yt.png"/>
-                </a>
-            </div>
-            <a href="#">
-                <h3>
-                    Kickin with Kraken Tee
-                </h3>
-            </a>
-            <h5>
-                $19.99
-            </h5>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere sem enim, accumsan convallis risus semper.
-            </p>
-        </div>
-    </div>
-    <div class="small-3 columns">
-        <div class="item-wrapper">
-            <div class="img-wrapper">
-                <a class="button expanded add-to-cart">
-                    Add to Cart
-                </a>
-                <a href="#">
-                    <img src="http://i.imgur.com/Mcw06Yt.png"/>
-                </a>
-            </div>
-            <a href="#">
-                <h3>
-                    Kickin with Kraken Tee
-                </h3>
-            </a>
-            <h5>
-                $19.99
-            </h5>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere sem enim, accumsan convallis risus semper.
-            </p>
-        </div>
-    </div>
-    <div class="small-3 columns">
-        <div class="item-wrapper">
-            <div class="img-wrapper">
-                <a class="button expanded add-to-cart">
-                    Add to Cart
-                </a>
-                <a href="#">
-                    <img src="http://i.imgur.com/Mcw06Yt.png"/>
-                </a>
-            </div>
-            <a href="#">
-                <h3>
-                    Kickin with Kraken Tee
-                </h3>
-            </a>
-            <h5>
-                $19.99
-            </h5>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere sem enim, accumsan convallis risus semper.
-            </p>
-        </div>
-    </div>
+        </div></div>
+     @endforeach
+    @empty
+    <h3>No Book<h3>
+    @endforelse
 </div>
 <!-- Footer -->
 <br>
