@@ -58,7 +58,7 @@ class ProductsController extends Controller
 
 
         Product::create($formInput);
-        return redirect()->route('admin.index');
+        return redirect()->route('product.index');
     }
 
     /**

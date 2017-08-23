@@ -7,7 +7,7 @@
 			@if(!empty($categories))
 				@forelse($categories as $category)
 					<li>
-						<a href="#">{{$category->name}}</a>
+						<a href="{{route('category.show',$category->id)}}">{{$category->name}}</a>
 					</li>
 					@empty
 					<li>No Data</li>
@@ -15,7 +15,7 @@
 			@endif
 		</ul>
 
-		<a class="btn btn-primary" data-toggle="modal" href="#modal">Add Category</a>
+		<a class="btn btn-primary" data-toggle="modal" href="#modal-id">Add Category</a>
 		<div class="modal fade" id="modal-id">
 			<div>
 				<div class="modal-dialog">
@@ -33,6 +33,7 @@
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							<button type="submit" class="btn btn-primary">Save</button>
 						</div>
 					</div>
 					{!! Form::close() !!}
@@ -40,4 +41,29 @@
 			</div>
 		</div>
 	</div>
+
+	@if(!empty($products))
+	<section>
+		<h3>Products</h3>
+
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Products</th>
+				</tr>
+			</thead>
+			<tbody>
+				@forelse($products as $product)
+				<tr>
+					<td>{{$product->name}}</td>
+				</tr>
+				@empty
+				<tr>
+					<td>No Data</td>
+				</tr> 
+				@endforelse
+			</tbody>
+		</table>
+	</section>
+	@endif
 @endsection

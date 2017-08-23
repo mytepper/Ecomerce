@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
+use App\Product;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 
-class CategoriesController extends Controller
+class CartController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,8 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-    $categories=Category::all();
-    return view('admin.category.index',compact('categories'));
+        $cartItems=Cart::Content();
+        return view('cart.index',compact('cartItems'));
     }
 
     /**
@@ -23,9 +24,9 @@ class CategoriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($productId)
     {
-        //
+       
     }
 
     /**
@@ -36,8 +37,7 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        Category::create($request->all());
-        return back();
+        //
     }
 
     /**
@@ -48,9 +48,7 @@ class CategoriesController extends Controller
      */
     public function show($id)
     {
-        $products=Category::find($id)->products;
-        $categories=Category::all();
-        return view('admin.category.index', compact(['categories','products']));
+        //
     }
 
     /**
@@ -61,7 +59,9 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        //
+         $product=Product::find($id);
+
+        Cart::add($id,$product->name,1,$product->price,['size'=>'medium']);
     }
 
     /**
