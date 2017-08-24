@@ -2,14 +2,17 @@
 
 @section('content')
 
-	<h3>Cart Items</h3>
 	
-	<table class="table table-hover">
-
+<div class="row">
+  <div class="col-6 col-md-4"></div>
+  <div class="col-6 col-md-4">
+  <table class="table table-hover">
+  	<h3>Cart Items</h3>
 		<thead>
 			<tr>
 				<th>Name</th>
 				<th>Price</th>
+				<th>Total Price</th>
 				<th>Qty</th>
 				<th>size</th>
 			</tr>
@@ -19,6 +22,7 @@
 				<tr>
 					<td>{{$cartItem->name}}</td>
 					<td>{{$cartItem->price}}</td>
+					<td>{{$cartItem->price * $cartItem->qty}}</td>
 					<td width="50px">
 					
 						{!! Form::open(['route' => ['cart.update',$cartItem->rowId],'method' => 'PUT']) !!}
@@ -32,11 +36,24 @@
 			@endforeach
 			<tr>
 				<td></td>
-				<td>Grand Total:{{Cart::total()}}</td>
+				<td></td>
+				<td>Grand Total:Rp.{{Cart::total()}}</td>
 				<td>Items:{{Cart::count()}}</td>
+
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td><a href="" class="button">Default Button</a></td>		
 			</tr>
 		</tbody>
-		
-	</table>
+	</table></div>
+  <div class="col-6 col-md-4"></div>
+</div>
+
+	
+
 
 @endsection
