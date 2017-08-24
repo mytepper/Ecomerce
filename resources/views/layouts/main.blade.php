@@ -43,7 +43,7 @@
                             </i>
                             CART
                             <span class="alert badge">
-                                8
+                                {{Cart::count()}}
                             </span>
                         </a>
                     </li>
