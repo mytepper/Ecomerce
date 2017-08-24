@@ -6,15 +6,16 @@
 <div class="row">
   <div class="col-6 col-md-4"></div>
   <div class="col-6 col-md-4">
-  <table class="table table-hover">
+  <table class="table table-bordered">
   	<h3>Cart Items</h3>
-		<thead>
+		<thead class="thead-inverse">
 			<tr>
 				<th>Name</th>
 				<th>Price</th>
 				<th>Total Price</th>
 				<th>Qty</th>
-				<th>size</th>
+				<th>Size</th>
+				<th>Action</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -31,25 +32,32 @@
 						{!! Form::close() !!}
 					</td>
 					<td>{{$cartItem->options->has('size')?$cartItem->options->size:''}}</td>
+					<td>
+						<form action="{{route('cart.destroy',$cartItem->rowId)}}" method="POST">
+							{{csrf_field()}}
+							{{method_field('DELETE')}}
+							<input class="button" type="submit" value="delete">
+						</form>
+					</td>
 
 				</tr>
 			@endforeach
 			<tr>
 				<td></td>
 				<td></td>
-				<td>Grand Total:Rp.{{Cart::total()}}</td>
+				<td>
+					TAX			:Rp.{{Cart::tax()}}<br>
+					Sub Total	:Rp.{{Cart::subtotal()}}<br>
+					Grand Total	:Rp.{{Cart::total()}}
+				</td>
 				<td>Items:{{Cart::count()}}</td>
 
 			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td><a href="" class="button">Default Button</a></td>		
-			</tr>
+			
 		</tbody>
-	</table></div>
+	</table>
+	<a href="" class="button" >Default Button</a>
+	</div>
   <div class="col-6 col-md-4"></div>
 </div>
 
