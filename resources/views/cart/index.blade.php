@@ -28,15 +28,22 @@
 					
 						{!! Form::open(['route' => ['cart.update',$cartItem->rowId],'method' => 'PUT']) !!}
 							<input name="qty" type="text" value="{{$cartItem->qty}}">
-							<input type="submit" class="btn btn-sm btn-default" value="ok">
-						{!! Form::close() !!}
+							
+						
 					</td>
-					<td>{{$cartItem->options->has('size')?$cartItem->options->size:''}}</td>
 					<td>
+						<div> 
+							{!! Form::select('size', ['small'=>'Small','medium'=>'Medium','large'=>'Large'] , $cartItem->options->has('size')?$cartItem->options->size:'' ) !!}
+                        </div>
+					</td>
+						
+					<td>
+						<input style="float: left;" type="submit" class="button success small" value="Ok">
+						{!! Form::close() !!}
 						<form action="{{route('cart.destroy',$cartItem->rowId)}}" method="POST">
 							{{csrf_field()}}
 							{{method_field('DELETE')}}
-							<input class="button" type="submit" value="delete">
+							<input class="button small alert" type="submit" value="delete">
 						</form>
 					</td>
 
