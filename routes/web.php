@@ -32,3 +32,4 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','admin']], function(){
 });
 
 route::get('checkout','CheckoutController@step1');
+route::get('shipping-info','CheckoutController@shipping')->name('checkout.shipping');

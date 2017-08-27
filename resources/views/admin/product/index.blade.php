@@ -8,6 +8,7 @@
 		@forelse($products as $product);
 		<li>
 			<h4>Name of product:{{$product->name}}</h4>
+			<h4>Name of product:{{$product->name}}</h4>
 		</li>
 
 			@empty

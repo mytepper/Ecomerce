@@ -9,9 +9,14 @@ class CheckoutController extends Controller
     public function step1()
     {
     	if(Auth::check()){
-    		return "shiping form";
+    		return redirect()->route('checkout.shipping');
     	}
 
     	return redirect('login');
+    }
+
+    public function shipping()
+    {
+    	return view('front.shipping-info');
     }
 }
