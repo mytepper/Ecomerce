@@ -12,7 +12,7 @@
         </strong>
     </h2>
     <br>
-    <a href="{{url('/books')}}"><button class="button large">Check out My Shirts</button></a>
+    <a href="{{url('/books')}}"><button class="button large">Check out My Books</button></a>
 </section>
 <br/>
 <div class="subheader text-center">

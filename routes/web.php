@@ -21,6 +21,7 @@ Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/home', 'HomeController@index');
 Route::resource('/cart', 'CartController');
+Route::get('/cart/add-items/{id}', 'CartController@addItem')->name('cart.addItem');
 
 Route::group(['prefix'=>'admin','middleware'=>['auth','admin']], function(){
   Route::get('/', function(){
