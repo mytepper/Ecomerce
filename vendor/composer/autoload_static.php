@@ -290,6 +290,8 @@ class ComposerStaticInitb994283a0dfca9b1d3e059d905e95179
     public static $classMap = array (
         'AddAdminColoumnToUsers' => __DIR__ . '/../..' . '/database/migrations/2017_08_25_092105_add_admin_coloumn_to_users.php',
         'AddPriceToProductsTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_22_040809_add_price_to_products_table.php',
+        'AddUserIdToAddressTableNew' => __DIR__ . '/../..' . '/database/migrations/2017_08_28_175827_add_user_id_to_address_table_new.php',
+        'CreateAddressesTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_28_171007_create_addresses_table.php',
         'CreateCategoriesTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_21_041746_create_categories_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateProductsTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_21_040550_create_products_table.php',

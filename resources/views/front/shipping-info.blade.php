@@ -6,10 +6,10 @@
 	<div class="row">
 		<div class="small-6 small-centered columns">
 		<h3>Shipping Info</h3>
-			{!! Form::open(['route' => 'checkout.shipping', 'method' => 'post']) !!}
+			{!! Form::open(['route' => 'address.store', 'method' => 'post']) !!}
 
 			<div class="form-group">
-				{{ form::label('addressline', 'Adress Line')}}
+				{{ form::label('addressline', 'Address Line')}}
 				{{ form::text('addressline', null, array('class' => 'form-control'))}}
 			</div>
 

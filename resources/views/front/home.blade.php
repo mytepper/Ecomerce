@@ -26,7 +26,7 @@
     <div class="small-4 columns">
         <div class="item-wrapper">
             <div class="img-wrapper">
-                <a href="{{route('cart.edit',$book->id)}}" class="button expanded add-to-cart">
+                <a href="{{route('cart.addItem',$book->id)}}" class="button expanded add-to-cart">
                     Add to Cart
                 </a>
                 <a href="#">
